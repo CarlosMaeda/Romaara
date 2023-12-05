@@ -1,0 +1,50 @@
+.formulario {
+  background-image: url("../../assets/img/Miel.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.titulo-Formulario {
+  padding: 3rem;
+  text-align: center;
+  color: rgb(46, 43, 43);
+}
+
+.datos-contacto {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.datos-contacto label {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.datos-contacto input {
+  width: 250px;
+}
+
+.motivo-contacto {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.motivo-contacto p {
+  display: block;
+}
+
+.radio-boton {
+  display: block;
+}
+
+textarea {
+  resize: none;
+}

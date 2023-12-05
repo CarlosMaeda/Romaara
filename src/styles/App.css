@@ -1,0 +1,15 @@
+.presentacion {
+  background-image: url("../assets/img/Miel.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.header {
+  font-size: 1.5rem;
+}
+
+.imgNavBar {
+  height: 35px;
+  width: auto;
+}
