@@ -45,7 +45,7 @@ function FormularioContacto1() {
       <div className="formulario">
         <h2 className="titulo-Formulario romaara">Formulario de contacto</h2>
         <form onSubmit={handleSubmit}>
-          <Row className="mb-3">
+          <Row className="mb-3 fs-2 fw-bold">
             <Form.Group as={Col} md="4" controlId="nombre">
               <Form.Label htmlFor="nombre">Nombre:</Form.Label>
               <Form.Control
@@ -90,8 +90,8 @@ function FormularioContacto1() {
             </Form.Group>
           </Row>
 
-          <Row className="mb-3">
-            <h3>Selecciona el motivo de contacto:</h3>
+          <Row className="mb-3 fs-4 fw-bold">
+            <h3 className="fs-2 fw-bold">Selecciona el motivo de contacto:</h3>
 
             <Form.Group className="mb-3">
               <Form.Check
@@ -124,7 +124,7 @@ function FormularioContacto1() {
           </Row>
 
           <Row className="mb-3">
-            <h3>Describe el motivo</h3>
+            <h3 className=" fs-2 fw-bold">Describe el motivo</h3>
 
             <Form.Control
               as="textarea"
