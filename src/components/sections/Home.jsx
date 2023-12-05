@@ -13,8 +13,8 @@ function Home() {
 
         <div className="container__card">
           <NewCard
-            imagen="../../src/assets/img/Miel.jpg"
-            alt="Imagen13"
+            imagen="../../src/assets/img/miel.jpg"
+            alt="Miel"
             presentacion="ENVASE de 1 Kg"
             descripcion="Descripción: Lorem ipsum dolor sit amet consectetur adipisicing
               elit. Labore fuga voluptatibus accusamus rem odio corrupti
@@ -24,7 +24,7 @@ function Home() {
 
           <NewCard
             imagen="../../src/assets/img/ft-frascoMielUntador.jpg"
-            alt="Imagen13"
+            alt="Frasco con miel"
             presentacion="ENVASE de 500 g"
             descripcion="Descripción: Lorem ipsum dolor sit amet consectetur adipisicing
               elit. Labore fuga voluptatibus accusamus rem odio corrupti
@@ -34,7 +34,7 @@ function Home() {
 
           <NewCard
             imagen="../../src/assets/img/ft-fondo.jpg"
-            alt="Imagen13"
+            alt="Miel"
             presentacion="ENVASE de 300 g"
             descripcion="Descripción: Lorem ipsum dolor sit amet consectetur adipisicing
               elit. Labore fuga voluptatibus accusamus rem odio corrupti

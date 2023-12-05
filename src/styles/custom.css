@@ -13,6 +13,14 @@ font-family: 'Sacramento', cursive;
 font-family: 'Tangerine', cursive;
 */
 
+.nav-item {
+  font-size: 1.7rem;
+}
+
+.dropdown-item {
+  font-size: 1.5rem;
+}
+
 .seccion {
   padding-top: 3%;
 }

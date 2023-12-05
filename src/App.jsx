@@ -1,4 +1,5 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import "../src/styles/App.css";
 
 import FormularioContacto from "./components/forms/Formulario";
@@ -10,32 +11,22 @@ import FormularioContacto1 from "./components/forms/Formulario1";
 function App() {
   return (
     <>
-      {/* 
-      <header className="header">
-        <Navegacion />
-      </header>
-      <main className="container-fluid presentacion">
-        <Home />
-      </main>
-      <footer>
-        <FormularioContacto />
-      </footer>
- */}
+      <Router>
+        <header className="header">
+          <Navegacion />
+        </header>
 
-      <header className="header">
-        <Navegacion />
-      </header>
+        <main className="container-fluid presentacion">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Formulario" element={<FormularioContacto1 />} />
+          </Routes>
+        </main>
 
-      <main className="container-fluid presentacion">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Formulario" element={<FormularioContacto1 />} />
-        </Routes>
-      </main>
-
-      <footer>
-        <Footer />
-      </footer>
+        <footer>
+          <Footer />
+        </footer>
+      </Router>
     </>
   );
 }
