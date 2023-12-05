@@ -13,7 +13,7 @@ function Home() {
 
         <div className="container__card">
           <NewCard
-            imagen="../src/assets/img/Miel.jpg"
+            imagen="../../src/assets/img/Miel.jpg"
             alt="Imagen13"
             presentacion="ENVASE de 1 Kg"
             descripcion="Descripción: Lorem ipsum dolor sit amet consectetur adipisicing
