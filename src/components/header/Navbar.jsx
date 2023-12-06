@@ -4,7 +4,7 @@ function Navegacion() {
   return (
     <>
       <nav
-        className="navbar navbar-expand-md bg-dark border-bottom border-body"
+        className="navbar navbar-expand-md bg-dark border-bottom border-body sticky-top"
         data-bs-theme="dark"
       >
         <div className="container-fluid">
@@ -53,12 +53,12 @@ function Navegacion() {
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="curiosidades">
+                    <Link className="dropdown-item" to="/curiosidades">
                       Curiosidades
                     </Link>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="beneficios">
+                    <Link className="dropdown-item" to="/beneficios">
                       Beneficios
                     </Link>
                   </li>
@@ -66,7 +66,7 @@ function Navegacion() {
                     <Link
                       className="dropdown-item disabled"
                       aria-disabled="true"
-                      to="recetas"
+                      to="/recetas"
                     >
                       Recetas
                     </Link>
