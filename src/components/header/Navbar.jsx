@@ -77,6 +77,9 @@ function Navegacion() {
           </div>
         </div>
       </nav>
+      {/*       <section>
+        <Outlet />
+      </section> */}
     </>
   );
 }

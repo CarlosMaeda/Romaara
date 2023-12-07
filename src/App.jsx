@@ -26,7 +26,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/Formulario" element={<FormularioContacto1 />} />
               <Route path="/curiosidades" element={<ListaCuriosidades />} />
-              <Route path="/" element={<Navigate to="/" />} />
+              <Route path="*" element={<Navigate replace to="/" />} />
             </Routes>
           </main>
           <Footer />
