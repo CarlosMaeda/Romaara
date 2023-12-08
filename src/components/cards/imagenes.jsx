@@ -1,31 +1,7 @@
-const imagenData = [
-  "../../src/assets/img/ft-frascoMielUntador.jpg",
-  "../../src/assets/img/mielPanal.jpg",
-  "../../src/assets/img/ft-fondo.jpg",
-];
+import ft_frasco from "../../src/assets/img/ft-frascoMielUntador.jpg";
 
-function ImgTarjeta(props) {
-  console.log(imagenData[0]);
-  return (
-    <>
-      <img src={imagenData[props.indice]} />
-    </>
-  );
-}
-export default ImgTarjeta;
+const Imagenes = {
+  ft_frasco,
+};
 
-/* 
-//import Tarjeta from "./tarjeta";
-function ImgTarjeta() {
-  [
-    //const mockImagenes = [
-    "../../src/assets/img/ft-frascoMielUntador.jpg",
-    "../../src/assets/img/mielPanal.jpg",
-    "../../src/assets/img/ft-fondo.jpg",
-  ];
-
-  //return <Tarjeta imagenes={mockImagenes} />;
-}
-
-export default ImgTarjeta;
- */
+export default Imagenes;

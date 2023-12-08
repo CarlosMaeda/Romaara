@@ -1,6 +1,9 @@
 import "../../styles/custom.css";
 
 import NewCard from "../cards/newCard";
+import miel from "../../../public/src-Public/img-Public/miel.jpg";
+import frascoUntador from "../../../public/src-Public/img-Public/ft-frascoMielUntador.jpg";
+import fondo from "../../../public/src-Public/img-Public/ft-fondo.jpg";
 
 function Home() {
   return (
@@ -13,7 +16,7 @@ function Home() {
 
         <div className="container__card">
           <NewCard
-            imagen="../../src/assets/img/miel.jpg"
+            imagen={miel}
             alt="Miel"
             presentacion="ENVASE de 1 Kg"
             descripcion="Descripción: Lorem ipsum dolor sit amet consectetur adipisicing
@@ -23,7 +26,7 @@ function Home() {
           />
 
           <NewCard
-            imagen="../../src/assets/img/ft-frascoMielUntador.jpg"
+            imagen={frascoUntador}
             alt="Frasco con miel"
             presentacion="ENVASE de 500 g"
             descripcion="Descripción: Lorem ipsum dolor sit amet consectetur adipisicing
@@ -33,7 +36,7 @@ function Home() {
           />
 
           <NewCard
-            imagen="../../src/assets/img/ft-fondo.jpg"
+            imagen={fondo}
             alt="Miel"
             presentacion="ENVASE de 300 g"
             descripcion="Descripción: Lorem ipsum dolor sit amet consectetur adipisicing

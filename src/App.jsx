@@ -13,6 +13,7 @@ import Footer from "./components/footer/Footer";
 import FormularioContacto1 from "./components/forms/Formulario1";
 
 import ListaCuriosidades from "./components/sections/Curiosidades";
+import ListaBeneficios from "./components/sections/Beneficios";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/Formulario" element={<FormularioContacto1 />} />
               <Route path="/curiosidades" element={<ListaCuriosidades />} />
+              <Route path="/beneficios" element={<ListaBeneficios />} />
               <Route path="*" element={<Navigate replace to="/" />} />
             </Routes>
           </main>
