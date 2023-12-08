@@ -1,8 +1,9 @@
 .formulario {
-  background-image: url("../../assets/img/Miel.jpg");
+  background-image: url("../../assets/img/fondo3.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  opacity: 90%;
   padding: 5rem;
   display: flex;
   flex-direction: column;
