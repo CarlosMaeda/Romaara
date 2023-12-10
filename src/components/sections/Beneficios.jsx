@@ -33,11 +33,12 @@ Para que el cerebro funcione correctamente hay que suministrarle energía. La fu
 
 import Beneficio from "../helpers/Beneficio";
 import beneficios from "../helpers/datosBeneficios";
+import "../../styles/custom.css";
 
 function ListaBeneficios() {
   return (
     <>
-      <h2 className="romaara">Beneficios de consumir MIEL pura</h2>
+      <h3 className="rma">Beneficios de consumir MIEL pura</h3>
       <div className="container__card">
         <section className="row align-items-md-center text-info-emphasis">
           <div className="col-12 col-md-4 fs-4">

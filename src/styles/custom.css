@@ -40,9 +40,9 @@ font-family: 'Tangerine', cursive;
 
 .presentacion .romaara {
   font-family: "Mystery Quest", cursive;
-  font-weight: 800;
+  font-weight: 700;
   text-align: center;
-  font-size: 6.5rem;
+  font-size: 5rem;
 }
 
 .romaara {
@@ -51,6 +51,15 @@ font-family: 'Tangerine', cursive;
   text-align: center;
   font-size: 3rem;
 }
+
+.rma {
+  font-family: "Mystery Quest", cursive;
+  font-weight: 700;
+  text-align: center;
+  font-size: 2.5rem;
+  padding-top: 2rem;
+}
+
 .presentacion .galeria {
   font-family: sans-serif;
   font-size: 0.9rem;
@@ -111,6 +120,14 @@ font-family: 'Tangerine', cursive;
   height: 30px;
 }
 
+.titulo-card {
+  font-size: 3rem;
+}
+
+.texto-card {
+  font-size: 1rem;
+}
+
 .footer {
   background-color: rgb(26, 25, 25);
   color: antiquewhite;
@@ -119,4 +136,36 @@ font-family: 'Tangerine', cursive;
   font-size: 1.2rem;
   text-align: center;
   padding: 10px;
+}
+
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+  .rma {
+    font-weight: 800;
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .presentacion .romaara {
+    font-weight: 800;
+    font-size: 6.5rem;
+  }
+
+  .rma {
+    font-weight: 800;
+    font-size: 5rem;
+  }
+
+  .rma-card {
+    width: 40rem;
+  }
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 1400px) {
 }

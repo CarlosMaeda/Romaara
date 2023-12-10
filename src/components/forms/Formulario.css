@@ -12,7 +12,7 @@
 }
 
 .titulo-Formulario {
-  padding: 3rem;
+  padding: 1rem;
   text-align: center;
   color: rgb(46, 43, 43);
 }
@@ -48,4 +48,16 @@
 
 textarea {
   resize: none;
+}
+
+@media (min-width: 768px) {
+  .formulario {
+    height: 155vh;
+  }
+}
+
+@media (min-width: 992px) {
+  .formulario {
+    height: 100vh;
+  }
 }

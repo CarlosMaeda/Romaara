@@ -141,7 +141,7 @@ function FormularioContacto1() {
           </Row>
           <Boton
             texto="Enviar"
-            ancho="40px"
+            ancho="50px"
             color="blue"
             onClick={SubmitEvent}
           />
