@@ -34,21 +34,29 @@ Para que el cerebro funcione correctamente hay que suministrarle energía. La fu
 import Beneficio from "../helpers/Beneficio";
 import beneficios from "../helpers/datosBeneficios";
 import "../../styles/custom.css";
+import { useState } from "react";
 
 function ListaBeneficios() {
+  /* const [autoNum, setAutoNum] = useState(1); */
+
   return (
     <>
       <h3 className="rma">Beneficios de consumir MIEL pura</h3>
       <div className="container__card">
         <section className="row align-items-md-center text-info-emphasis">
           <div className="col-12 col-md-4 fs-4">
-            {beneficios.map((beneficio, index) => (
-              <Beneficio
-                className="gap-3"
-                key={index}
-                texto={beneficio.beneficio}
-              />
-            ))}
+            {beneficios.map((beneficio, index) => {
+              return (
+                <>
+                  <Beneficio
+                    className="gap-3"
+                    key={index}
+                    titulo={"Beneficio"}
+                    texto={beneficio.beneficio}
+                  />
+                </>
+              );
+            })}
           </div>
         </section>
       </div>

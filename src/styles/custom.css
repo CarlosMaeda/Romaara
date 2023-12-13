@@ -97,7 +97,7 @@ font-family: 'Tangerine', cursive;
 
 .container__card .card img {
   width: 100%;
-  height: 220px;
+  height: 200px;
 }
 
 .container__card .card h4 {
@@ -128,6 +128,10 @@ font-family: 'Tangerine', cursive;
   font-size: 1rem;
 }
 
+.curiosidad {
+  list-style-type: upper-roman;
+}
+
 .footer {
   background-color: rgb(26, 25, 25);
   color: antiquewhite;
@@ -145,6 +149,10 @@ font-family: 'Tangerine', cursive;
   .rma {
     font-weight: 800;
     font-size: 4rem;
+  }
+
+  .container__card .card img {
+    height: 220px;
   }
 }
 

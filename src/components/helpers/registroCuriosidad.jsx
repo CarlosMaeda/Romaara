@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 function Curiosidad(props) {
   return (
-    <section className="seccion border border-warning p-3">
+    <section className="seccion p-3">
       <p> {props.texto}</p>
     </section>
   );

@@ -11,11 +11,17 @@ function ListaCuriosidades() {
       <div className="container fw-bold">
         <section className="row align-items-lg-center text-info-emphasis">
           <div className="col-12 col-lg-5 fs-3">
-            {Curiosidades.map((curiosidad, index) => {
-              if (parseInt(index) <= 5) {
-                return <Curiosidad key={index} texto={curiosidad.texto1} />;
-              }
-            })}
+            <ol>
+              {Curiosidades.map((curiosidad, index) => {
+                if (parseInt(index) <= 5) {
+                  return (
+                    <li className="curiosidad">
+                      <Curiosidad key={index} texto={curiosidad.texto1} />
+                    </li>
+                  );
+                }
+              })}
+            </ol>
           </div>
           <div className="col-12 col-lg-7">
             <img className="img-fluid" src={AbejaFlor} alt="curiosidades" />
@@ -23,11 +29,17 @@ function ListaCuriosidades() {
         </section>
         <section className="row align-items-lg-center text-primary-emphasis">
           <div className="col-12 col-lg-5 fs-3 order-lg-1">
-            {Curiosidades.map((curiosidad, index) => {
-              if (parseInt(index) >= 6) {
-                return <Curiosidad key={index} texto={curiosidad.texto2} />;
-              }
-            })}
+            <ol start={7}>
+              {Curiosidades.map((curiosidad, index) => {
+                if (parseInt(index) >= 6) {
+                  return (
+                    <li className="curiosidad">
+                      <Curiosidad key={index} texto={curiosidad.texto2} />
+                    </li>
+                  );
+                }
+              })}
+            </ol>
           </div>
           <div className="col-12 col-lg-7 py-4">
             <img className="img-fluid" src={AbejaTarro} alt="curiosidades" />
