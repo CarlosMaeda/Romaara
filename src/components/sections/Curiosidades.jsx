@@ -15,8 +15,8 @@ function ListaCuriosidades() {
               {Curiosidades.map((curiosidad, index) => {
                 if (parseInt(index) <= 5) {
                   return (
-                    <li className="curiosidad">
-                      <Curiosidad key={index} texto={curiosidad.texto1} />
+                    <li key={index} className="curiosidad">
+                      <Curiosidad texto={curiosidad.texto1} />
                     </li>
                   );
                 }
@@ -33,8 +33,8 @@ function ListaCuriosidades() {
               {Curiosidades.map((curiosidad, index) => {
                 if (parseInt(index) >= 6) {
                   return (
-                    <li className="curiosidad">
-                      <Curiosidad key={index} texto={curiosidad.texto2} />
+                    <li key={index} className="curiosidad">
+                      <Curiosidad texto={curiosidad.texto2} />
                     </li>
                   );
                 }

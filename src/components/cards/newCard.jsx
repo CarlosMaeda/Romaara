@@ -11,7 +11,13 @@ function NewCard(props) {
         <Card.Title>{props.presentacion}</Card.Title>
         <Card.Text>{props.descripcion}</Card.Text>
 
-        <Boton texto="BENEFICIOS" ancho="30%" color="green" style="" />
+        <Boton
+          texto="BENEFICIOS"
+          ancho="30%"
+          color="green"
+          style=""
+          onClick={props.click}
+        />
       </Card.Body>
     </Card>
   );

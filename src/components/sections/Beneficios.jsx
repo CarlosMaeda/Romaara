@@ -34,10 +34,14 @@ Para que el cerebro funcione correctamente hay que suministrarle energía. La fu
 import Beneficio from "../helpers/Beneficio";
 import beneficios from "../helpers/datosBeneficios";
 import "../../styles/custom.css";
-import { useState } from "react";
+/* import { useState } from "react"; */
 
 function ListaBeneficios() {
-  /* const [autoNum, setAutoNum] = useState(1); */
+  /* const [autoNum, setAutoNum] = useState(1);
+
+  function num() {
+    setAutoNum(autoNum + 1);
+  } */
 
   return (
     <>
@@ -51,7 +55,7 @@ function ListaBeneficios() {
                   <Beneficio
                     className="gap-3"
                     key={index}
-                    titulo={"Beneficio"}
+                    titulo={`Beneficio ${index + 1}`}
                     texto={beneficio.beneficio}
                   />
                 </>

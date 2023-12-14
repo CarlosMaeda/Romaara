@@ -6,6 +6,26 @@ import frascoUntador from "../../../public/src-Public/img-Public/ft-frascoMielUn
 import fondo from "../../../public/src-Public/img-Public/ft-fondo.jpg";
 
 function Home() {
+  const handleClick1 = () => {
+    return (
+      <div>
+        <p>Boton pulsado</p>
+      </div>
+    );
+  };
+
+  const handleClick2 = () => {
+    return <div>Boton pulsado</div>;
+  };
+
+  const handleClick3 = () => {
+    return (
+      <div>
+        <p>Boton pulsado</p>
+      </div>
+    );
+  };
+
   return (
     <>
       <section className="container-fluid seccion">
@@ -23,6 +43,7 @@ function Home() {
               elit. Labore fuga voluptatibus accusamus rem odio corrupti
               aspernatur commodi cumque magni officia. Nisi, quaerat accusamus.
               Accusamus repellat, eos error laborum repellendus laudantium?"
+            click={handleClick1}
           />
 
           <NewCard
@@ -33,6 +54,7 @@ function Home() {
               elit. Labore fuga voluptatibus accusamus rem odio corrupti
               aspernatur commodi cumque magni officia. Nisi, quaerat accusamus.
               Accusamus repellat, eos error laborum repellendus laudantium?"
+            click={handleClick2}
           />
 
           <NewCard
@@ -43,6 +65,7 @@ function Home() {
               elit. Labore fuga voluptatibus accusamus rem odio corrupti
               aspernatur commodi cumque magni officia. Nisi, quaerat accusamus.
               Accusamus repellat, eos error laborum repellendus laudantium?"
+            click={handleClick3}
           />
         </div>
         <div className="sep"></div>
