@@ -8,7 +8,7 @@ function Navegacion() {
         data-bs-theme="dark"
       >
         <div className="container-fluid">
-          <span className="navbar-brand romaara">RMA</span>
+          <span className="navbar-brand romaara-nav">RMA</span>
           <button
             className="navbar-toggler"
             type="button"
