@@ -28,7 +28,7 @@ Live working document for the Romaara honey brand website (React 18 + Vite + Boo
   1. Vercel detected `pnpm-lock.yaml` and used **pnpm 9.x** (based on project creation date), which does NOT understand the modern `pnpm-workspace.yaml` settings format → `ERROR: packages field missing or empty`.
   2. Case-sensitivity bug: `Home.jsx` imported `miel.jpg` but the file is `Miel.jpg` — works on Windows (NTFS case-insensitive), fails on Linux build → build died in "transforming...".
 - [x] **Fixes applied**: `vercel.json` with `installCommand: corepack pnpm install --frozen-lockfile` + `buildCommand: corepack pnpm run build` (forces pnpm 11.2.2 via corepack); `package.json` now has `packageManager: pnpm@11.2.2` + `engines.node: 24.x` (20.x is deprecated on Vercel, will hard-fail after 2026-10-01); `Home.jsx` import fixed to `Miel.jpg`.
-- [ ] **P2 · S**: The GitHub integration webhook is NOT set up (no webhook/checks in the repo) — deploys are currently manual (`vercel --prod`). Consider enabling Git integration in the Vercel project dashboard so pushes auto-deploy. Note: even with Git integration, `vercel.json` corepack config must stay.
+- [x] **P2 · S**: GitHub integration IS ACTIVE — the pushes triggered automatic production deploys (verified: auto-deploy `n5pqav56w` Ready after the last push). Earlier note about "no webhook" was wrong: Vercel uses a GitHub App, which does not appear in the classic repo-hooks API. `vercel git connect` confirms `CarlosMaeda/Romaara` is connected. Deploys now auto-trigger on every push to main — keep `vercel.json` corepack config in the repo so builds keep passing.
 
 ## 1. Design
 
