@@ -5,10 +5,10 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import "../src/styles/App.css";
+import "./styles/App.css";
 
-import Navegacion from "../src/components/header/Navbar";
-import Home from "../../Romaara-web/src/components/sections/Home";
+import Navegacion from "./components/header/Navbar";
+import Home from "./components/sections/Home";
 import Footer from "./components/footer/Footer";
 import FormularioContacto1 from "./components/forms/Formulario1";
 
@@ -25,7 +25,7 @@ function App() {
           <main className="container-fluid presentacion">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/Formulario" element={<FormularioContacto1 />} />
+              <Route path="/formulario" element={<FormularioContacto1 />} />
               <Route path="/curiosidades" element={<ListaCuriosidades />} />
               <Route path="/beneficios" element={<ListaBeneficios />} />
               <Route path="*" element={<Navigate replace to="/" />} />

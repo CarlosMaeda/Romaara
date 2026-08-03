@@ -139,12 +139,7 @@ function FormularioContacto1() {
               onChange={(e) => setDescripcion(e.target.value)}
             />
           </Row>
-          <Boton
-            texto="Enviar"
-            ancho="50px"
-            color="blue"
-            onClick={SubmitEvent}
-          />
+          <Boton texto="Enviar" ancho="50px" color="blue" />
         </form>
       </div>
     </>
