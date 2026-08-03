@@ -1,7 +1,7 @@
 import "../../styles/custom.css";
 
 import NewCard from "../cards/newCard";
-import miel from "../../../public/src-Public/img-Public/miel.jpg";
+import miel from "../../../public/src-Public/img-Public/Miel.jpg";
 import frascoUntador from "../../../public/src-Public/img-Public/ft-frascoMielUntador.jpg";
 import fondo from "../../../public/src-Public/img-Public/ft-fondo.jpg";
 
