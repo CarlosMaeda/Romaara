@@ -1,85 +1,80 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import {
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+} from "react-bootstrap";
 
 function Navegacion() {
   return (
     <>
-      <nav
-        className="navbar navbar-expand-md bg-dark border-bottom border-body sticky-top"
+      <Navbar
+        expand="md"
+        sticky="top"
+        bg="dark"
         data-bs-theme="dark"
+        className="border-bottom border-body"
       >
-        <div className="container-fluid">
-          <span className="navbar-brand romaara-nav">RMA</span>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavDropdown"
+        <Container fluid>
+          <Navbar.Brand className="romaara-nav">RMA</Navbar.Brand>
+          <Navbar.Toggle
             aria-controls="navbarNavDropdown"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul className="navbar-nav ms-md-auto">
-              <li className="nav-item">
-                <Link className="nav-link active" to="/">
+            aria-label="Abrir menú de navegación"
+          />
+          <Navbar.Collapse id="navbarNavDropdown">
+            <Nav className="ms-md-auto">
+              <Nav.Item>
+                <NavLink
+                  to="/"
+                  end
+                  className={({ isActive }) =>
+                    `nav-link${isActive ? " active" : ""}`
+                  }
+                >
                   Inicio
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="nav-link disabled"
-                  aria-disabled="true"
+                </NavLink>
+              </Nav.Item>
+              <Nav.Item>
+                <NavLink
                   to="/nosotros"
+                  aria-disabled="true"
+                  tabIndex="-1"
+                  className={({ isActive }) =>
+                    `nav-link disabled${isActive ? " active" : ""}`
+                  }
                 >
                   Nosotros
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/formulario">
-                  Contacto
-                </Link>
-              </li>
-              <li className="nav-item dropdown">
-                <Link
-                  className="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
+                </NavLink>
+              </Nav.Item>
+              <Nav.Item>
+                <NavLink
+                  to="/formulario"
+                  className={({ isActive }) =>
+                    `nav-link${isActive ? " active" : ""}`
+                  }
                 >
-                  Particularidades
-                </Link>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link className="dropdown-item" to="/curiosidades">
-                      Curiosidades
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="dropdown-item" to="/beneficios">
-                      Beneficios
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="dropdown-item disabled"
-                      aria-disabled="true"
-                      to="/recetas"
-                    >
-                      Recetas
-                    </Link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      {/*       <section>
-        <Outlet />
-      </section> */}
+                  Contacto
+                </NavLink>
+              </Nav.Item>
+              <NavDropdown
+                title="Particularidades"
+                id="particularidades-dropdown"
+              >
+                <NavDropdown.Item as={NavLink} to="/curiosidades">
+                  Curiosidades
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/beneficios">
+                  Beneficios
+                </NavDropdown.Item>
+                <NavDropdown.Item as={NavLink} to="/recetas" disabled>
+                  Recetas
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   );
 }

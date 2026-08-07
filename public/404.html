@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Página no encontrada | ROMAARA</title>
+    <meta
+      name="description"
+      content="La página que buscás no existe. Volvé al inicio de ROMAARA para descubrir nuestra miel pura de la Patagonia."
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: rgba(187, 223, 219, 0.747);
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+        letter-spacing: 0.03em;
+        line-height: 1.6;
+        padding: 1rem;
+      }
+      .wrapper {
+        max-width: 480px;
+      }
+      h1 {
+        font-size: 5rem;
+        color: #ff6600;
+        margin-bottom: 0.5rem;
+      }
+      p {
+        font-size: 1.15rem;
+        margin-bottom: 1.5rem;
+      }
+      a {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        background-color: #ff6600;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      a:hover {
+        background-color: #d95a00;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>404</h1>
+      <p>Página no encontrada</p>
+      <p>
+        La página que estás buscando no existe o fue movida. Volvé al inicio
+        para conocer nuestra miel pura de la Patagonia.
+      </p>
+      <a href="/Romaara/">Volver a ROMAARA</a>
+    </div>
+    <script>
+      setTimeout(function () {
+        window.location.href = "/Romaara/";
+      }, 4000);
+    </script>
+  </body>
+</html>
