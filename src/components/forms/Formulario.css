@@ -4,15 +4,15 @@
   background-position: center;
   background-size: cover;
   opacity: 90%;
-  padding: 5rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 100vh;
+  min-height: 100dvh;
 }
 
 .titulo-Formulario {
-  padding: 1rem;
+  padding: 0.625rem;
   text-align: center;
   color: rgb(46, 43, 43);
 }
@@ -24,7 +24,7 @@
 }
 
 .datos-contacto label {
-  font-size: 1.5rem;
+  font-size: 0.9375rem;
   font-weight: 800;
 }
 
@@ -52,12 +52,12 @@ textarea {
 
 @media (min-width: 768px) {
   .formulario {
-    height: 155vh;
+    padding: 3rem;
   }
 }
 
 @media (min-width: 992px) {
   .formulario {
-    height: 100vh;
+    padding: 4rem;
   }
 }
