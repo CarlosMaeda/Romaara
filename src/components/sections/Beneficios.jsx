@@ -33,10 +33,12 @@ Para que el cerebro funcione correctamente hay que suministrarle energía. La fu
 
 import Beneficio from "../helpers/Beneficio";
 import beneficios from "../helpers/datosBeneficios";
+import usePageTitle from "../../hooks/usePageTitle";
 import "../../styles/custom.css";
 /* import { useState } from "react"; */
 
 function ListaBeneficios() {
+  usePageTitle("Beneficios de la Miel — ROMAARA");
   /* const [autoNum, setAutoNum] = useState(1);
 
   function num() {
@@ -47,21 +49,18 @@ function ListaBeneficios() {
     <>
       <h3 className="rma">Beneficios de consumir MIEL pura</h3>
       <div className="container__card">
-        <section className="row align-items-md-center text-info-emphasis">
-          <div className="col-12 col-md-4 fs-4">
-            {beneficios.map((beneficio, index) => {
-              return (
-                <>
-                  <Beneficio
-                    className="gap-3"
-                    key={index}
-                    titulo={`Beneficio ${index + 1}`}
-                    texto={beneficio.beneficio}
-                  />
-                </>
-              );
-            })}
-          </div>
+        <section className="row g-4 align-items-md-center text-info-emphasis">
+          {beneficios.map((beneficio, index) => {
+            return (
+              <div key={index} className="col-12 col-md-6 col-lg-4 fs-4">
+                <Beneficio
+                  className="gap-3"
+                  titulo={`Beneficio ${index + 1}`}
+                  texto={beneficio.beneficio}
+                />
+              </div>
+            );
+          })}
         </section>
       </div>
     </>
