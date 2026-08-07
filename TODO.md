@@ -5,7 +5,8 @@ Live working document for the Romaara honey brand website (React 18 + Vite + Boo
 **Legend**
 - **Priority**: `P0` = must fix (broken/build/runtime), `P1` = high impact, `P2` = nice to have
 - **Effort**: `S` small (< 30 min) · `M` medium (0.5–2 h) · `L` large (> 2 h)
-- Areas: **Design** · **UX/UI** · **Content** · **Performance** · **Functionality**
+- Areas: **Design** · **UX/UI** · **Accessibility** · **Content** · **Performance** · **Functionality**
+- **North star**: mobile-first DE VERDAD — el celular es el producto, el desktop se escala desde ahí (research 2026: >60% del tráfico es móvil).
 
 ---
 
@@ -29,6 +30,67 @@ Live working document for the Romaara honey brand website (React 18 + Vite + Boo
   2. Case-sensitivity bug: `Home.jsx` imported `miel.jpg` but the file is `Miel.jpg` — works on Windows (NTFS case-insensitive), fails on Linux build → build died in "transforming...".
 - [x] **Fixes applied**: `vercel.json` with `installCommand: corepack pnpm install --frozen-lockfile` + `buildCommand: corepack pnpm run build` (forces pnpm 11.2.2 via corepack); `package.json` now has `packageManager: pnpm@11.2.2` + `engines.node: 24.x` (20.x is deprecated on Vercel, will hard-fail after 2026-10-01); `Home.jsx` import fixed to `Miel.jpg`.
 - [x] **P2 · S**: GitHub integration IS ACTIVE — the pushes triggered automatic production deploys (verified: auto-deploy `n5pqav56w` Ready after the last push). Earlier note about "no webhook" was wrong: Vercel uses a GitHub App, which does not appear in the classic repo-hooks API. `vercel git connect` confirms `CarlosMaeda/Romaara` is connected. Deploys now auto-trigger on every push to main — keep `vercel.json` corepack config in the repo so builds keep passing.
+
+## 0.8 Mobile-first audit 2026-08-06 — nuevos hallazgos
+
+> Auditoría completa del código + research UX mobile-first 2026. Los P0 de las secciones 0–0.6 ya están verificados (build OK, deploy Vercel OK). Los hallazgos nuevos se suman a las secciones de abajo; referencia: `TODO.md` sigue siendo el documento vivo.
+
+### Mobile-first — bugs que rompen el celu (hacer YA)
+
+- [x] **P0 · S · `src/components/cards/newCard.jsx:8`**: `width: "32rem"` (512px) — las cards de Home desbordan la pantalla en cualquier celu (360–390px). Poner `width: 100%` + grid `col-12 col-md-6 col-lg-4`.
+- [x] **P0 · S · `src/components/helpers/Beneficio.jsx:8`**: `width: "30rem"` (480px) — las 9 cards de Beneficios desbordan en móvil; además el estilo inline mata la regla desktop `.rma-card` de `custom.css:178`. Usar `w-100`.
+- [x] **P1 · S · `src/styles/index.css:16-17`**: `html { font-size: 10px }` encoge TODO el scale `rem` de Bootstrap al 62.5% (botones, nav, forms). Borrar.
+- [x] **P1 · S · `src/components/forms/Formulario.css:7,11`**: `padding: 5rem; height: 100vh` — el form pierde ancho útil en celu y el `100vh` es el clásico bug de la address bar. Usar `min-height: 100dvh` + `padding: 2rem`.
+- [x] **P1 · S · `src/components/buttons/Boton.css:4` + `Formulario1.jsx:142`**: `padding: 10px, 20px` inválido (coma) + botón submit de 50px de ancho → target de tap < 44px. Arreglar padding y darle tamaño táctil.
+
+### UX/UI — interacciones muertas o confusas
+
+- [x] **P0 · M · `Home.jsx:9-27`**: los botones "BENEFICIOS" de las cards retornan JSX desde `onClick` — el valor se descarta y NO hacen nada. Decidir: navegar a `/beneficios`, scroll o quitar.
+- [x] **P0 · M · `Formulario1.jsx:29-41`** — conectado a Formspree (fetch a `VITE_FORMSPREE_ENDPOINT`), estados submitting/success/error, sin `alert()`. **FUNCIONANDO**: endpoint `https://formspree.io/f/xqpzadnb` cargado en `.env.local`, build lo inlinea (verificado en `dist/assets/index-*.js`), prueba real devolvió `ok: true`.
+- [ ] **P1 · S · Config en Vercel**: cargar `VITE_FORMSPREE_ENDPOINT = https://formspree.io/f/xqpzadnb` como env var (producción + preview) — desde el **dashboard del proyecto** (Settings → Environment Variables) o `vercel login` + `vercel env add VITE_FORMSPREE_ENDPOINT production`. El CLI local no tiene credenciales. **Sin esto, el deploy de producción muestra el estado de error del form.**: el form no envía a ningún lado (`preventDefault` + `alert()`). Conectar a Formspree / EmailJS con estados success/error inline (los `alert()` son hostiles en móvil).
+- [x] **P1 · S · `Formulario1.jsx:60,74,90`**: los campos arrancan en rojo al cargar (pristine = "invalid"). Usar estado touched / post-submit o `is-invalid`.
+- [x] **P1 · M · `Beneficios.jsx:50-65`** — grid `row g-4` + `col-12 col-md-6 col-lg-4` (verificado: 9 cards fluidas en móvil).: las 9 cards apiladas en UNA columna `col-12 col-md-4` con cards de 480px → layout roto en desktop y overflow en móvil. Grid responsivo real.
+- [ ] **P1 · M · Hero (`Home.jsx:31-35`)**: sin imagen, sin CTA, sin propuesta de valor arriba del fold. Mobile-first: headline + sub + CTA + 1 prueba de confianza en la primera pantalla.
+
+### Accesibilidad
+
+- [ ] **P1 · S**: una sola `<h1>` por ruta — hoy `/beneficios` arranca en `<h3>`, `/formulario` en `<h2>`.
+- [ ] **P1 · S · `Formulario1.jsx:99-126`**: el grupo de radios "motivo" no tiene `<fieldset>`/`<legend>` — sin nombre programático.
+- [x] **P1 · S · `Navbar.jsx:45-53`**: dropdown "Particularidades" convertido a `NavDropdown` de react-bootstrap (funciona sin CDN JS; verificado: menu abre y navega).
+- [x] **P1 · S · `Navbar.jsx:26`**: `active` hardcodeado eliminado — `NavLink` + `aria-current="page"` (verificado: item activo refleja la ruta).
+- [ ] **P2 · S**: `:focus-visible` global + skip-to-content link; el `aria-label` del toggle quedó "Toggle navigation" (default inglés de react-bootstrap — el prop custom no tomó; re-aplicar con prop o CSS).
+
+### Performance
+
+- [x] **P1 · M**: Bootstrap ÚNICO — react-bootstrap como única fuente; CDN CSS+JS removidos de `index.html`, `bootstrap.min.css` ahora via npm en `main.jsx` (verificado: cero referencias CDN en dist).
+- [x] **P1 · M · `custom.css:1`**: `@import` de Google Fonts reemplazado por `<link>` en `index.html` con solo Sacramento + Mystery Quest + preconnect (verificado en dist).
+- [x] **P1 · M**: imágenes con `loading="lazy"` + width/height (CLS) en todos los componentes activos; `ft-abejaFlor` convertida a webp (472 KB → 43 KB, `<picture>` con fallback jpg; verificado que el navegador sirve la webp).
+- [ ] **P2 · S · `Home.jsx:4-6`**: importa desde `public/` → Vite duplica el asset en `dist/`. Referenciar por ruta absoluta `/src-Public/...` o mover a `src/assets/`.
+- [ ] **P2 · M**: `React.lazy` + `Suspense` por ruta (code splitting).
+
+### SEO / meta
+
+- [x] **P1 · S · `index.html`**: SEO completo agregado — meta description, Open Graph, Twitter Card y `canonical` → https://romaara.vercel.app/ (verificado en dist).
+- [x] **P1 · S · `public/404.html`** (creado; verificado en dist).
+- [x] **P2 · S**: `document.title` por ruta (hook `usePageTitle` creado en `src/hooks/usePageTitle.js`).
+
+### Housekeeping nuevo
+
+- [x] **P1 · S · `Beneficios.jsx:54`**: `key={index}` sobre un fragment `<>` (no acepta key) → warning de React.
+- [x] **P1 · S · `newCard.jsx:29`** — propTypes alineado: `click: PropTypes.func`, se eliminó `enlace`.: propTypes declara `enlace` pero Home pasa `click` — alinear el contrato.
+- [x] **P2 · S · `Boton.jsx:13-14`**: hardcodea `type="submit"` fuera de forms — aceptar prop `type`.
+
+### Checklist mobile-first (research 2026) — meta del proyecto
+
+- [ ] CTA primario visible arriba del fold en 375px (iPhone SE) sin scroll.
+- [ ] Sticky CTA bar en móvil (persistente durante scroll, en zona del pulgar).
+- [ ] Targets táctiles ≥ 44×44px en todo elemento interactivo.
+- [ ] Font base ≥ 16px en móvil (evita zoom de iOS al enfocar inputs).
+- [ ] CERO scroll horizontal en cualquier ancho.
+- [ ] Nav full-screen overlay en móvil; el CTA principal queda fuera del hamburguesa.
+- [ ] Form corto: 1 campo por pantalla donde se pueda, `type="email"`/`tel`, autocomplete.
+- [ ] Core Web Vitals en móvil: LCP ≤ 2.5s · CLS ≤ 0.1 · INP ≤ 200ms.
+- [ ] Testear en celu real (no solo DevTools): 360px / 768px / 1280px.
 
 ## 1. Design
 
@@ -113,9 +175,9 @@ Live working document for the Romaara honey brand website (React 18 + Vite + Boo
 
 ## Suggested execution order
 
-1. **P0 blocker fixes** (§0) — get a working build + reachable contact page.
-2. **Housekeeping** (§6) — delete dead code so the diff is clean.
-3. **Functionality** (§5) — real form, working buttons, prop contracts.
-4. **Design + UX/UI** (§1, §2) — design system, nav, grids, responsive.
-5. **Content** (§3) — real product copy, Nosotros, Recetas page, SEO.
-6. **Performance** (§4) — images, fonts, code splitting, bundle hygiene.
+1. **P0 mobile (§0.8)** — cards fluidas, borrar `font-size: 10px`, form mobile, botones vivos (BENEFICIOS + submit real).
+2. **Housekeeping (§6)** — delete dead code así el diff queda limpio.
+3. **Functionality (§5)** — form conectado, botones funcionando, contratos de props.
+4. **Design + UX/UI + A11y (§1, §2)** — design system, nav, grids responsivos, focus states, h1 por ruta.
+5. **Content (§3)** — copy real de productos, Nosotros, Recetas, SEO/meta.
+6. **Performance (§4)** — Bootstrap único, fonts, imágenes, code splitting, Core Web Vitals.
