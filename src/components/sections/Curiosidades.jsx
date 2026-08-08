@@ -1,10 +1,13 @@
 import Curiosidad from "../helpers/registroCuriosidad";
 import Curiosidades from "../helpers/datosCuriosidades";
+import usePageTitle from "../../hooks/usePageTitle";
 import AbejaFlor from "../../../public/src-Public/img-Public/ft-abejaFlor.jpg";
+import AbejaFlorWebp from "../../../public/src-Public/img-Public/ft-abejaFlor.webp";
 import AbejaTarro from "../../../public/src-Public/img-Public/abeja-tarro-miel.jpg";
 import "../../styles/custom.css";
 
 function ListaCuriosidades() {
+  usePageTitle("Curiosidades de las Abejas — ROMAARA");
   return (
     <>
       <h3 className="rma">Curiosidades que no conocías, sobre la miel</h3>
@@ -24,7 +27,20 @@ function ListaCuriosidades() {
             </ol>
           </div>
           <div className="col-12 col-lg-7">
-            <img className="img-fluid" src={AbejaFlor} alt="curiosidades" />
+            <picture>
+              <source
+                srcSet={AbejaFlorWebp}
+                type="image/webp"
+              />
+              <img
+                className="img-fluid"
+                src={AbejaFlor}
+                alt="curiosidades"
+                loading="lazy"
+                width={840}
+                height={822}
+              />
+            </picture>
           </div>
         </section>
         <section className="row align-items-lg-center text-primary-emphasis">
@@ -42,7 +58,14 @@ function ListaCuriosidades() {
             </ol>
           </div>
           <div className="col-12 col-lg-7 py-4">
-            <img className="img-fluid" src={AbejaTarro} alt="curiosidades" />
+            <img
+              className="img-fluid"
+              src={AbejaTarro}
+              alt="curiosidades"
+              loading="lazy"
+              width={740}
+              height={493}
+            />
           </div>
         </section>
       </div>
